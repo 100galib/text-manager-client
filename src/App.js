@@ -4,7 +4,7 @@ import router from './Components/Routes/Routes';
 
 function App() {
   return (
-    <div>
+    <div className='className="bg-white dark:bg-slate-800"'>
       <RouterProvider router={router}></RouterProvider>
     </div>
   );
