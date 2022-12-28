@@ -1,11 +1,31 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { auth, createUserWithEmailAndPassword, updateProfile } from '../../../Firebase/firebase';
+import {login} from '../../../features/counter/counterSlice';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit} = useForm();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const registerHandler = data => {
-        console.log(data)
+        createUserWithEmailAndPassword(auth, data.email, data.password)
+        .then((userAuth) => {
+            console.log(userAuth.user)
+            updateProfile(userAuth.user, {
+                displayName: data.name
+              })
+              .then(dispatch(login({
+                email: userAuth.user.email,
+                uid: userAuth.user.uid,
+                displayName: data.name,
+              })))
+              .catch(eror => console.error(eror));
+              navigate('/')
+        })
+        .catch(error => console.error(error))
     }
 
     return (
