@@ -13,7 +13,6 @@ const Register = () => {
     const registerHandler = data => {
         createUserWithEmailAndPassword(auth, data.email, data.password)
         .then((userAuth) => {
-            console.log(userAuth.user)
             updateProfile(userAuth.user, {
                 displayName: data.name
               })

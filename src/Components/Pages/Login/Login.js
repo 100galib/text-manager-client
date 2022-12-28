@@ -14,7 +14,6 @@ const Login = () => {
     const loginHandler = data => {
         signInWithEmailAndPassword(auth, data.email, data.password)
         .then((userAuth) => {
-            console.log(userAuth)
             dispatch(login({
                 email: userAuth.user.email,
                 uid: userAuth.user.uid,
