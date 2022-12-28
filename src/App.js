@@ -5,6 +5,13 @@ import {onAuthStateChanged, auth} from './Firebase/firebase';
 import './App.css';
 import router from './Components/Routes/Routes';
 import { login, logout } from './features/counter/counterSlice';
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+// Create a client
+const queryClient = new QueryClient()
 
 function App() {
   const dispatch = useDispatch();
@@ -27,7 +34,7 @@ function App() {
 
   return (
     <div className='className="bg-white dark:bg-slate-800"'>
-      <RouterProvider router={router}></RouterProvider>
+      <QueryClientProvider client={queryClient}><RouterProvider router={router}></RouterProvider></QueryClientProvider>
     </div>
   );
 }
