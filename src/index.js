@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from  'react-redux';
 import {store} from './app/store'
+import { Toaster } from 'react-hot-toast';
 
 
 
@@ -14,7 +15,10 @@ root.render(
 
   
   <React.StrictMode>
-    <Provider store={store}><App/></Provider>
+    <Provider store={store}>
+      <App/>
+      <Toaster></Toaster>
+    </Provider>
   </React.StrictMode>
 );
 
