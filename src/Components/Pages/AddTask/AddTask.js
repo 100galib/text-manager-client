@@ -29,7 +29,8 @@ const AddTask = () => {
                         email: user.email,
                         name: user.displayName,
                         taskName: 'added Task',
-                        imageData : image.data.url
+                        imageData : image.data.url,
+                        task: 'media'
                     }
                     fetch('http://localhost:5000/allTask', {
                         method: 'POST',
@@ -46,25 +47,6 @@ const AddTask = () => {
                     })
             }
         })
-        // const postData = {
-        //     taskData: data.text,
-        //     email: user.email,
-        //     name: user.displayName,
-        //     taskName: 'added Task'
-        // }
-        // fetch('http://localhost:5000/allTask', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(postData)
-        // })
-        // .then(res => res.json())
-        // .then(data => {console.log(data)
-        //     if(data.acknowledged){
-        //         toast.success('Task is Submitted');
-        //     }
-        // })
     }
 
     return (
