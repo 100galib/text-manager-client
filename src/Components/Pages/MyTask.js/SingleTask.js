@@ -31,6 +31,7 @@ const SingleTask = ({alltas, refetch}) => {
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{taskData}</p>
                 <div className='flex justify-between my-6'>
                     <Link to={`/update/${_id}`}><button type="button" className="py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button></Link>
+                    <Link to={`/viewDetails/${_id}`}><button type="button" className="py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Details</button></Link>
                     <button onClick={() => deletetask(_id)} type="button" className="py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Delete</button>
                 </div>
             </div>

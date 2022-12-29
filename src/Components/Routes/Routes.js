@@ -8,6 +8,8 @@ import Media from "../Pages/Media/Media";
 import MyTask from "../Pages/MyTask.js/MyTask";
 import Update from "../Pages/MyTask.js/Update";
 import Register from "../Pages/Register/Register";
+import ViewDetailsPage from "../Pages/ViewDetailsPage/ViewDetailsPage";
+import PrivateRoutes from "./PrivateRoutes/PrivateRoutes";
 
 
 const router = createBrowserRouter([
@@ -47,6 +49,11 @@ const router = createBrowserRouter([
             {
                 path: '/update/:id',
                 element: <Update></Update>,
+                loader: ({params}) => fetch(`http://localhost:5000/allTask/${params.id}`)
+            },
+            {
+                path:'/viewDetails/:id',
+                element: <PrivateRoutes><ViewDetailsPage></ViewDetailsPage></PrivateRoutes>,
                 loader: ({params}) => fetch(`http://localhost:5000/allTask/${params.id}`)
             }
         ]

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { login } from '../../../features/counter/counterSlice';
 import {signInWithEmailAndPassword, auth, signInWithPopup, porvider} from '../../../Firebase/firebase';
 
@@ -10,6 +10,10 @@ const Login = () => {
     const { register, handleSubmit } = useForm();
     const dispatch = useDispatch();
     const navigate = useNavigate()
+    const location = useLocation();
+
+
+    const from = location.state?.from?.pathname || "/";
 
     const loginHandler = data => {
         signInWithEmailAndPassword(auth, data.email, data.password)
@@ -19,7 +23,8 @@ const Login = () => {
                 uid: userAuth.user.uid,
                 displayName: userAuth.user.displayName,
               }))
-              navigate('/')
+              navigate(from, { replace: true });
+
         })
         .catch(error => console.error(error))
     }
@@ -32,7 +37,7 @@ const Login = () => {
                 uid: userAuth.user.uid,
                 displayName: userAuth.user.displayName,
               }))
-              navigate('/')
+              navigate(from, { replace: true });
         })
         .catch(error => console.error(error))
     }
