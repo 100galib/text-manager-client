@@ -32,7 +32,7 @@ const AddTask = () => {
                         imageData : image.data.url,
                         task: 'media'
                     }
-                    fetch('http://localhost:5000/allTask', {
+                    fetch('https://text-manager-server.vercel.app/allTask', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'

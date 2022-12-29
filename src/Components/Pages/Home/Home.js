@@ -15,7 +15,7 @@ const Home = () => {
             name: user.displayName,
             taskName: 'added Task'
         }
-        fetch('http://localhost:5000/allTask', {
+        fetch('https://text-manager-server.vercel.app/allTask', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

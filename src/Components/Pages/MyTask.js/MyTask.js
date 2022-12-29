@@ -9,7 +9,7 @@ const MyTask = () => {
     const {data: alltastks = [], refetch} = useQuery({
         queryKey:['users'],
         queryFn: async() => {
-            const res = await fetch(`http://localhost:5000/allTask?email=${user?.email}`);
+            const res = await fetch(`https://text-manager-server.vercel.app/allTask?email=${user?.email}`);
             const data = res.json();
             return data;
         }

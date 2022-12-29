@@ -9,7 +9,7 @@ const Update = () => {
 
     const handleSubmitprovider = (data) => {
         const taskData = data.text
-        fetch(`http://localhost:5000/allTask/${useData[0]._id}`, {
+        fetch(`https://text-manager-server.vercel.app/allTask/${useData[0]._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

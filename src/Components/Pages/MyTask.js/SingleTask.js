@@ -7,7 +7,7 @@ const SingleTask = ({alltas, refetch}) => {
 
 
         const deletetask = (id) => {
-        fetch(`http://localhost:5000/allTask/${id}`, {
+        fetch(`https://text-manager-server.vercel.app/allTask/${id}`, {
             method: 'DELETE',
         })
         .then(res => res.json())

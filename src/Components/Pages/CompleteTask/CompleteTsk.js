@@ -9,7 +9,7 @@ const CompleteTsk = () => {
     const newData = useData[0]
 
     const deletetask = (id) => {
-        fetch(`http://localhost:5000/allTask/${id}`, {
+        fetch(`https://text-manager-server.vercel.app/allTask/${id}`, {
             method: 'DELETE',
         })
         .then(res => res.json())

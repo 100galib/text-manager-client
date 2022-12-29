@@ -6,7 +6,7 @@ const Media = () => {
     const {data: alltastks = [], refetch} = useQuery({
         queryKey:['users'],
         queryFn: async() => {
-            const res = await fetch(`http://localhost:5000/allTask?task=media`);
+            const res = await fetch(`https://text-manager-server.vercel.app/allTask?task=media`);
             const data = res.json();
             return data;
         }

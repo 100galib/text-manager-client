@@ -32,7 +32,7 @@ const router = createBrowserRouter([
             {
                 path: '/completetask/:id',
                 element: <CompleteTsk></CompleteTsk>,
-                loader: ({params}) => fetch(`http://localhost:5000/allTask/${params.id}`)
+                loader: ({params}) => fetch(`https://text-manager-server.vercel.app/allTask/${params.id}`)
             },
             {
                 path: '/media',
@@ -49,12 +49,12 @@ const router = createBrowserRouter([
             {
                 path: '/update/:id',
                 element: <Update></Update>,
-                loader: ({params}) => fetch(`http://localhost:5000/allTask/${params.id}`)
+                loader: ({params}) => fetch(`https://text-manager-server.vercel.app/allTask/${params.id}`)
             },
             {
                 path:'/viewDetails/:id',
                 element: <PrivateRoutes><ViewDetailsPage></ViewDetailsPage></PrivateRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5000/allTask/${params.id}`)
+                loader: ({params}) => fetch(`https://text-manager-server.vercel.app/allTask/${params.id}`)
             }
         ]
     }
