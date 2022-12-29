@@ -38,9 +38,6 @@ const Navigation = () => {
                         <Link to='/mytask' className="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">My Task</Link>
                         </li>
                         <li>
-                        <Link to='/completetask' className="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Completed Tasks</Link>
-                        </li>
-                        <li>
                         <Link to='/media' className="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Media</Link>
                         </li>
                         {

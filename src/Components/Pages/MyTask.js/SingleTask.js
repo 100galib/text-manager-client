@@ -1,21 +1,11 @@
 import React from 'react';
 import { toast } from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 const SingleTask = ({alltas, refetch}) => {
     const {_id, taskData, name, imageData, taskName } = alltas;
 
 
-    const completeTask = (id) => {
-        fetch(`http://localhost:5000/allTask/${id}`, {
-            method: 'PUT',
-        })
-        .then(res => res.json())
-        .then(data => {console.log(data)
-            if(data.modifiedCount > 0){
-                toast.success('Task Completed')
-            }
-        })
-    }
         const deletetask = (id) => {
         fetch(`http://localhost:5000/allTask/${id}`, {
             method: 'DELETE',
@@ -35,13 +25,12 @@ const SingleTask = ({alltas, refetch}) => {
             <div className="p-5">
                 <div className='flex justify-between my-6'>
                 <h5 className="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">{taskName}</h5>
-                <button onClick={() => {completeTask(_id);
-                                }} type="button" className="py-2 px-3 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Completed</button>
+                <Link to={`/completetask/${_id}`}><button type="button" className="py-2 px-3 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Completed</button></Link>
                 </div>
                 <h5 className="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">User Name: {name}</h5>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{taskData}</p>
                 <div className='flex justify-between my-6'>
-                    <button type="button" className="py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
+                    <Link to={`/update/${_id}`}><button type="button" className="py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button></Link>
                     <button onClick={() => deletetask(_id)} type="button" className="py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Delete</button>
                 </div>
             </div>
