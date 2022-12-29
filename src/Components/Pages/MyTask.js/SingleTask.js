@@ -31,7 +31,7 @@ const SingleTask = ({alltas, refetch}) => {
     return (
 
         <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <img className="rounded-t-lg" src={imageData} alt="Image_not Found" />
+                {imageData ? <img className="rounded-t-lg" src={imageData} alt="Image_not Found" /> : ''}
             <div className="p-5">
                 <div className='flex justify-between my-6'>
                 <h5 className="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">{taskName}</h5>
